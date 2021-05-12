@@ -3,8 +3,14 @@ using System.Collections;
 
 namespace DataStrucures_CSharp.Basic_DataStructures
 {
+    /// <summary>
+    /// Demonstrates Array in C#.
+    /// </summary>
     public class Array_Demo : IDemo
     {
+        /// <summary>
+        /// Starts Array Demo.
+        /// </summary>
         public void Demo()
         {
             //Array
@@ -92,6 +98,8 @@ namespace DataStrucures_CSharp.Basic_DataStructures
             //
             //        Array weekDays after the call to ChangeArrayElements:
             //        Mon Wed Fri Wed Tue Mon Sun
+
+            //Courtesy: MSDN.
 
             Console.WriteLine("Find the closest x(3) numbers of y (21) in a given unsorted array of n numbers");
 

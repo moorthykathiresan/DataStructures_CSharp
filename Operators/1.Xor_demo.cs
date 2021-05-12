@@ -6,7 +6,7 @@ using DataStrucures_CSharp.Basic_DataStructures;
 
 namespace DataStrucures_CSharp.Operators
 {
-    public class Xor_Demo //: IDemo
+    public class Xor_Demo : IDemo
     {
         public void Demo()
         {
@@ -68,7 +68,7 @@ namespace DataStrucures_CSharp.Operators
 
         private string AttemptReHash(string hashedString)
         {
-            return null;
+            return null; // Must never happen. Testing
         }
 
         //static void PrintArray()

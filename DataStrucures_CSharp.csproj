@@ -8,5 +8,6 @@
   <ItemGroup>
     <Folder Include="Basic_DataStructures\" />
     <Folder Include="Operators\" />
+    <Folder Include="Inheritance\" />
   </ItemGroup>
 </Project>

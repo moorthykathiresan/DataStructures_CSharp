@@ -1,7 +1,7 @@
 ﻿using System;
 namespace DataStrucures_CSharp.Basic_DataStructures
 {
-    public class Struct_Demo //: IDemo
+    public class Struct_Demo : IDemo
     {
         public void Demo()
         {
