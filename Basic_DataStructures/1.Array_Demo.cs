@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace DataStrucures_CSharp.Basic_DataStructures
 {
-    public class Array_Demo //: IDemo
+    public class Array_Demo : IDemo
     {
         public void Demo()
         {
@@ -93,6 +93,47 @@ namespace DataStrucures_CSharp.Basic_DataStructures
             //        Array weekDays after the call to ChangeArrayElements:
             //        Mon Wed Fri Wed Tue Mon Sun
 
+            Console.WriteLine("Find the closest x(3) numbers of y (21) in a given unsorted array of n numbers");
+
+            var input = new[] { 34, 3, 21, 46, 86, 49, 22, 31, 73 };
+            var numberToFind = 21; // The number in question. (y)
+            var numberofItems = 3; // No of items to find.(x)
+
+            Array.Sort(input);
+
+            var index = FindExactOrNearestIndex(input, 0, input.Length - 1, -1, numberToFind);
+            var initialIndex = index - ((numberofItems - 1) / 2);
+            if(initialIndex + numberofItems > input.Length)
+            {
+                initialIndex = input.Length - numberofItems;
+            }
+            for (int i =  initialIndex; i < initialIndex + numberofItems; i++)
+            {
+                Console.WriteLine(input[i]);
+            }
+        }
+
+        public int FindExactOrNearestIndex(int[] input, int left, int right, int previousMid, int numberToFind)
+        {
+            var mid = (left + right + 1) / 2;
+
+            if(left == right || left > right || mid == previousMid)
+            {
+                return left;
+            }
+
+            if(input[mid] == numberToFind)
+            {
+                return mid;
+            }
+            else if(input[mid] > numberToFind)
+            {
+                return FindExactOrNearestIndex(input, left, mid-1, mid, numberToFind);
+            }
+            else
+            {
+                return FindExactOrNearestIndex(input, mid+1, right, mid, numberToFind);
+            }
         }
 
         public static void DisplayData(IEnumerable data)

@@ -1,13 +1,16 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Text;
 using DataStrucures_CSharp.Basic_DataStructures;
 
 namespace DataStrucures_CSharp.Operators
 {
-    public class Xor_Demo : IDemo
+    public class Xor_Demo //: IDemo
     {
         public void Demo()
         {
+            var stringToHash = "ABC";
 
             Console.WriteLine("Demo: Cypher/Decypher with Xor");
             var testNumber = 9856874;
@@ -40,8 +43,32 @@ namespace DataStrucures_CSharp.Operators
                 previousSum = sum;
             }
 
-            Console.WriteLine($"Found Duplicate: {duplicate}");
+            Console.WriteLine($"Found Duplicate: {duplicate}"); 
            
+        }
+
+        private string OpenHash(string stringToHash, int hashLength)
+        {
+            // 256 // 12 != 21
+            var buffer = Encoding.Unicode.GetBytes(stringToHash);
+
+            var sum = 1;
+            foreach (var item in buffer)
+            {
+                sum += item;
+            }
+
+            for(var i=0; i < hashLength; i++)
+            {
+
+            }
+
+            return null;
+        }
+
+        private string AttemptReHash(string hashedString)
+        {
+            return null;
         }
 
         //static void PrintArray()
