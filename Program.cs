@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Linq;
 using DataStrucures_CSharp.Basic_DataStructures;
+using System.Collections.Generic;
 
 namespace DataStrucures_CSharp
 {
@@ -9,7 +10,9 @@ namespace DataStrucures_CSharp
     {
         static void Main(string[] args)
         {
+            Foo();
 
+            Console.WriteLine(Foo().First());
 
             var demos = Assembly.GetExecutingAssembly().GetTypes()
                 .Where(t => t.IsClass && typeof(IDemo).IsAssignableFrom(t));
@@ -29,6 +32,12 @@ namespace DataStrucures_CSharp
 
             Console.WriteLine("Press Enter to exit");
             Console.ReadLine();
+        }
+
+        static IEnumerable<int> Foo()
+        {
+            yield return 0;
+            //  return new[] { 1 };
         }
 
 

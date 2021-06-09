@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 
 namespace DataStrucures_CSharp.Basic_DataStructures
 {
@@ -99,15 +100,22 @@ namespace DataStrucures_CSharp.Basic_DataStructures
             //        Array weekDays after the call to ChangeArrayElements:
             //        Mon Wed Fri Wed Tue Mon Sun
 
-            //Courtesy: MSDN.
+
 
             Console.WriteLine("Find the closest x(3) numbers of y (21) in a given unsorted array of n numbers");
 
             var input = new[] { 34, 3, 21, 46, 86, 49, 22, 31, 73 };
-            var numberToFind = 21; // The number in question. (y)
+            var numberToFind = 73; // The number in question. (y)
             var numberofItems = 3; // No of items to find.(x)
 
-            Array.Sort(input);
+            //Array.Sort(input);
+
+            var nearest = input.OrderBy(i => Math.Abs(i - numberToFind));
+
+            for (int i = 0; i < numberofItems; i++)
+            {
+                Console.WriteLine(nearest.ElementAt(i));
+            }
 
             var index = FindExactOrNearestIndex(input, 0, input.Length - 1, -1, numberToFind);
             var initialIndex = index - ((numberofItems - 1) / 2);
